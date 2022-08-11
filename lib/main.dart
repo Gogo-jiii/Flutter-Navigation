@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:navigation/second_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -37,8 +38,26 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        child: Column(),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            const Text(
+              'This is first page.',
+            ),
+            ElevatedButton(
+              onPressed: () {
+                gotoSecondPage();
+              },
+              child: const Text("Go to second page"),
+            )
+          ],
+        ),
       ),
     );
+  }
+
+  void gotoSecondPage() {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => const SecondPage()));
   }
 }
